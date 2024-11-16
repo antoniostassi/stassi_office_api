@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 // Models
-use App\Models\Outgoing;
 use App\Models\Invoice;
 
 class InvoiceController extends Controller
@@ -22,11 +21,14 @@ class InvoiceController extends Controller
 
         if (!$invoice) {
             return response()->json([
-                'success' => 'false',
+                'success' => false,
                 'message' => 'Fattura non trovata!'
             ]);
         };
 
-        return $invoice;
+        return response()->json([
+            'success' => true,
+            'data' => $invoice
+        ]);
     }
 }
