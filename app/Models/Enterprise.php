@@ -14,6 +14,6 @@ class Enterprise extends Model
 
     public function invoices(): HasMany
     {
-        return $this->hasMany(Invoice::class);
+        return $this->hasMany(Invoice::class); // Returns all invoices related to enterprise
     }
 }
