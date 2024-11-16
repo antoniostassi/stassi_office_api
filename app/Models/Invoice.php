@@ -9,11 +9,11 @@ class Invoice extends Model
     //
 
     protected $fillable = [
-        'enterprise',
+        'enterprise_id',
         'description',
         'amount',
         'received',
-        'project',
+        'project_id',
         'creation_date'
     ];
 
