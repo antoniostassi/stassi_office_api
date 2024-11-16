@@ -23,6 +23,7 @@ class InvoiceSeeder extends Seeder
                 'description' => Str::random(10),
                 'amount' => rand(100, 1500),
                 'received' => rand(0,1),
+                'enterprise_id' => rand(1,10),
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
         }
