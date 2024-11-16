@@ -3,16 +3,17 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-// Models
+// Controllers
 
-use App\Models\Outgoing;
-use App\Models\Invoice;
+use App\Http\Controllers\Api\InvoiceController;
+
+// Routes
 
 Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/invoices', function() {
-    $invoices = Invoice::all();
-    return $invoices;
-});
+Route::resource('invoices', InvoiceController::class)->only([
+    'index',
+    'show'
+]);
