@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('invoices', function (Blueprint $table) {
             //
-            $table->foreignId('project_id')->constrained()->onUpdate('cascade')->onDelete(null);
+            $table->foreignId('project_id')->nullable()->constrained()->onUpdate('cascade')->onDelete(null);
         });
     }
 

@@ -29,7 +29,12 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropForeign('category_id');
+        Schema::table('outgoings', function (Blueprint $table) {
+            //
+            Schema::disableForeignKeyConstraints();
+            $table->dropForeign(['category_id']);
+            $table->dropColumn('category_id');
+        });
         Schema::dropIfExists('outgoings');
     }
 };
