@@ -14,7 +14,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('invoices', InvoiceController::class)->only([
+Route::resource('invoices', InvoiceController::class)->middleware('auth')->only([
     'index',
     'show'
 ]);
